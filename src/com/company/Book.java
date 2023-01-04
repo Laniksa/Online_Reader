@@ -32,11 +32,11 @@ public class Book {
     public int getPages(){
         return pages;
     }
-    public String toString(){
-        return "Название: " + name +"\n"+
-                "Автор: " + author +"\n"+
-                "Издание: " + publishingHouse +"\n"+
-                "Год издания :"+ published +"\n"+
+    public String toString() {
+        return "Название: " + name + "\n" +
+                "Автор: " + author + "\n" +
+                "Дом издания: " + publishingHouse + "\n" +
+                "Год издания :" + published + "\n" +
                 "Количество страниц: " + pages;
     }
 
