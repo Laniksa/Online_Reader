@@ -18,38 +18,47 @@ public class Catalog {
 
             try {
                 num = scan.nextInt();// проверка на ввод
-                switch (num){
-                    case 1:
-                        addBook(createBook(scan));
-                        break;
-                    case 2:
-                        System.out.println(library);//проблема с кодировкой
-                        break;
-                    case 3:
-                        System.out.println("Программа завершена");// не выходит из программы
-                        break;
-                }
+
                 if (num < 1 || num > 3) {
                     throw new InputMismatchException();
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Введите корректное число из меню");
             }
+            switch (num){//не читается
+                case 1:
+                    addBook(createBook(scan));
+                    break;
+                case 2:
+                    for(int i=0; i<10; i++){
+                        System.out.println(library[i]);
+                    }
+
+                    break;
+                case 3:
+
+                    System.out.println("Программа завершена");// не выходит из программы
+                    return false;
 
 
         }
     }
     public static Book createBook(Scanner sc){
-        String tempName = sc.nextLine();
+
         System.out.println("Введите название книги :");
-        String tempAuthor = sc.nextLine();
+        String tempName = sc.nextLine();
+
         System.out.println("Введите автора книги :");
-        String tempPublishingHouse = sc.nextLine();
+        String tempAuthor = sc.nextLine();
+
         System.out.println("Введите дом издания книги :");// после ввода зацикливается
-        int tempPublished = sc.nextInt();
+         String tempPublishingHouse = sc.nextLine();
+
         System.out.println("Введите год издания книги :");
-        int tempPages = sc.nextInt();
+        int tempPublished = sc.nextInt();
+
         System.out.println("Введите количество страниц книги :");
+        int tempPages = sc.nextInt();
 
         return new Book(tempName,tempAuthor,tempPublishingHouse,tempPublished,tempPages);
     }
