@@ -27,7 +27,7 @@ public class Catalog {
 //        } catch (InputMismatchException e) {
 //            System.out.println("Введите корректное число из меню");
 //        }
-        num = scan.nextInt();//пришлось дублировать сос строкой 21,иначе не видит
+        num = scan.nextInt();//пришлось дублировать со с строкой 21,иначе не видит
             switch (num) {//не читается
                 case 1:
                     addBook(createBook(scan));
@@ -50,6 +50,7 @@ public class Catalog {
     }
         public static Book createBook (Scanner scan){
 
+
             scan.nextLine();
 
             System.out.println("Введите название книги :");
@@ -67,7 +68,7 @@ public class Catalog {
             System.out.println("Введите количество страниц книги :");
             int tempPages = scan.nextInt();
 
-            return new Book(tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
+            return new Book(numberBook, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
         }
         public static void addBook(Book book){
             library[numberBook] = book;
@@ -75,7 +76,7 @@ public class Catalog {
 
         }
         public static void main (String[]args){
-        while (true) {// не могу придумать ка зациклить меню без while
+        while (true) {// не могу придумать как зациклить меню без while
             menu();
         }
 
