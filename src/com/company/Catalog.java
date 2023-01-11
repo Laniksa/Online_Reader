@@ -11,11 +11,19 @@ public class Catalog {
     public static boolean menu() {
         Scanner scan = new Scanner(System.in);
         int num;
+
         System.out.println("Введите действие: \n" +
                     "1. Добавить книгу \n" +
                     "2. Показать все книги \n" +
                     "3. Выход");
         num = scan.nextInt();
+        if(num<1 || num>3){
+            try {
+                throw new Exception("не правильно введеное число");
+            } catch (Exception e) {
+                System.out.println("Выберите пункт в меню от 1 до 3");
+            }
+        }
             switch (num) {
                 case 1:
                     addBook(createBook(scan));
