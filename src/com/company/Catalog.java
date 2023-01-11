@@ -45,7 +45,7 @@ public class Catalog {
     }
         public static Book createBook (Scanner scan){
             scan.nextLine();
-            count++;
+
 
             System.out.println("Введите название книги :");
             String tempName = scan.nextLine();
@@ -56,11 +56,12 @@ public class Catalog {
             System.out.println("Введите дом издания книги :");
             String tempPublishingHouse = scan.nextLine();
 
-            System.out.println("Введите год издания книги :");
-            int tempPublished = scan.nextInt();
+                System.out.println("Введите год издания книги :");
+                int tempPublished = correctNumberInput(scan);
 
-            System.out.println("Введите количество страниц книги :");
-            int tempPages = scan.nextInt();
+                System.out.println("Введите количество страниц книги :");
+                int tempPages = correctNumberInput(scan);
+
 
             return new Book(count, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
         }
@@ -69,6 +70,11 @@ public class Catalog {
             numberBook++;
 
         }
+
+        public static int correctNumberInput(Scanner scan) throws NumberFormatException {
+        return Integer.parseInt(scan.nextLine());
+        }
+
         public static void main (String[]args){
             menu();
         }
