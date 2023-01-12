@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Catalog {
     public static int numberBook = 0;
-    public static int maxBook = 15;
+    public static final int maxBook = 15;
     public static Book[] library = new Book[maxBook] ;
 
     public static boolean menu() {
@@ -25,7 +25,7 @@ public class Catalog {
 
                         break;
                     case 2:
-                        for (int i = 0; i < maxBook; ++i) {
+                        for (int i = 0; i < numberBook; ++i) {
                             System.out.println(library[i]);
                         }
 
@@ -84,8 +84,8 @@ public class Catalog {
 
             return new Book(numberBook, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
         }
-        public static void addBook(Book book){
-            library[numberBook] = book;
+        public static void addBook(Book tempBook){
+            library[numberBook] = tempBook;
             ++numberBook;
 
         }
