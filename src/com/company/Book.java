@@ -8,8 +8,8 @@ public class Book {
     private static int pages;
 
 
-    public Book(int count, String name, String author, String publishingHouse, int published, int pages){
-        Catalog.count = count;
+    public Book(int numberBook, String name, String author, String publishingHouse, int published, int pages){
+        Catalog.numberBook = numberBook;
         this.name = name;
         this.author = author;
         this.publishingHouse = publishingHouse;
@@ -37,7 +37,7 @@ public class Book {
     public String toString() {
 
         return
-                "Номер книги: " +Catalog.count+"\n"+
+                "Номер книги: " +Catalog.numberBook+"\n"+
                 "Название: " + name + "\n" +
                 "Автор: " + author + "\n" +
                 "Дом издания: " + publishingHouse + "\n" +

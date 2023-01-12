@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Catalog {
     public static int numberBook = 0;
-    public static int count = 0;//не работает нумерация
     public static int maxBook = 15;
     public static Book[] library = new Book[maxBook] ;
 
@@ -22,15 +21,13 @@ public class Catalog {
                 num = scan.nextInt();
                 switch (num) {
                     case 1:
-                        count++;
                         addBook(createBook(scan));
 
                         break;
                     case 2:
-                        for (int i = 0; i < maxBook; i++) {
+                        for (int i = 0; i < maxBook; ++i) {
                             System.out.println(library[i]);
                         }
-
 
                         break;
                     case 3:
@@ -47,11 +44,11 @@ public class Catalog {
 
         }
 
-
-
     }
         public static Book createBook (Scanner scan){
             scan.nextLine();
+            int tempPublished;
+            int tempPages;
 
 
             System.out.println("Введите название книги :");
@@ -63,19 +60,33 @@ public class Catalog {
             System.out.println("Введите дом издания книги :");
             String tempPublishingHouse = scan.nextLine();
 
-                System.out.println("Введите год издания книги :");
-                int tempPublished = correctNumberInput(scan);
+            while (true){
+                try{
+                    System.out.println("Введите год издания книги :");
+                    tempPublished = correctNumberInput(scan);
+                    break;
+                }catch(NumberFormatException e){
+                    System.out.println("Введите год издания в числовом формате");
+                    continue;
+                }
+            }
 
-                System.out.println("Введите количество страниц книги :");
-                int tempPages = correctNumberInput(scan);
+            while (true){
+                try {
+                    System.out.println("Введите количество страниц книги :");
+                    tempPages = correctNumberInput(scan);
+                    break;
+                }catch(NumberFormatException e) {
+                    System.out.println("Введите количество страниц в числовом формате в числовом формате");
+                    continue;
+                }
+            }
 
-
-
-            return new Book(count, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
+            return new Book(numberBook, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
         }
         public static void addBook(Book book){
             library[numberBook] = book;
-            numberBook++;
+            ++numberBook;
 
         }
 
