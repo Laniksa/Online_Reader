@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Catalog {
@@ -10,38 +11,44 @@ public class Catalog {
 
     public static boolean menu() {
         Scanner scan = new Scanner(System.in);
-        int num;
 
-        System.out.println("Введите действие: \n" +
+        while (true){
+            int num;
+            System.out.println("Введите действие: \n" +
                     "1. Добавить книгу \n" +
                     "2. Показать все книги \n" +
                     "3. Выход");
-        num = scan.nextInt();
-        if(num<1 || num>3){
             try {
-                throw new Exception("не правильно введеное число");
-            } catch (Exception e) {
-                System.out.println("Выберите пункт в меню от 1 до 3");
+                num = scan.nextInt();
+                switch (num) {
+                    case 1:
+                        count++;
+                        addBook(createBook(scan));
+
+                        break;
+                    case 2:
+                        for (int i = 0; i < maxBook; i++) {
+                            System.out.println(library[i]);
+                        }
+
+
+                        break;
+                    case 3:
+
+                        System.out.println("\n Программа завершена");
+                        return false;
+                    default:
+                        System.out.println("Выберите пункт в меню от 1 до 3");
+
+                }
+            }catch(InputMismatchException e){
+                System.out.println("Введите числовое значение пункта меню");
             }
-        }
-            switch (num) {
-                case 1:
-                    addBook(createBook(scan));
-                    menu();
-                    break;
-                case 2:
-                    for (int i = 0; i < maxBook; i++) {
-                        System.out.println(library[i]);
-                    }
-                    menu();
 
-                    break;
-                case 3:
-
-                    System.out.println("\n Программа завершена");
-                    return false;
         }
-            return true;
+
+
+
     }
         public static Book createBook (Scanner scan){
             scan.nextLine();
@@ -61,6 +68,7 @@ public class Catalog {
 
                 System.out.println("Введите количество страниц книги :");
                 int tempPages = correctNumberInput(scan);
+
 
 
             return new Book(count, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
