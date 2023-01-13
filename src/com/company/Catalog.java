@@ -7,7 +7,7 @@ public class Catalog {
     public static int numberBook = 0;
     public static final int maxBook = 15;
     public static Book[] library = new Book[maxBook] ;
-   //public  int count = 0;
+    public static int count;
 
 
 
@@ -54,6 +54,7 @@ public class Catalog {
             scan.nextLine();
             int tempPublished;
             int tempPages;
+            count++;
 
 
 
@@ -89,7 +90,7 @@ public class Catalog {
                 }
             }
 
-            return new Book(Book.count, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
+            return new Book(count, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
         }
         public static void addBook(Book tempBook){
             library[numberBook] = tempBook;

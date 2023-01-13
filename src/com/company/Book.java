@@ -7,11 +7,11 @@ public class Book {
     private  String publishingHouse;
     private  int published;
     private  int pages;
-    public static int count = 0;
+    private int count;
 
 
     public Book(int count, String name, String author, String publishingHouse, int published, int pages){
-        this.count = count++;
+        this.count = count;
         this.name = name;
         this.author = author;
         this.publishingHouse = publishingHouse;
