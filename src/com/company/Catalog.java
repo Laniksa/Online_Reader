@@ -7,9 +7,13 @@ public class Catalog {
     public static int numberBook = 0;
     public static final int maxBook = 15;
     public static Book[] library = new Book[maxBook] ;
+   //public  int count = 0;
+
+
 
     public static boolean menu() {
         Scanner scan = new Scanner(System.in);
+
 
         while (true){
             int num;
@@ -45,10 +49,13 @@ public class Catalog {
         }
 
     }
+    
         public static Book createBook (Scanner scan){
             scan.nextLine();
             int tempPublished;
             int tempPages;
+
+
 
 
             System.out.println("Введите название книги :");
@@ -82,7 +89,7 @@ public class Catalog {
                 }
             }
 
-            return new Book(numberBook, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
+            return new Book(Book.count, tempName, tempAuthor, tempPublishingHouse, tempPublished, tempPages);
         }
         public static void addBook(Book tempBook){
             library[numberBook] = tempBook;

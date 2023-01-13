@@ -1,15 +1,17 @@
 package com.company;
 
 public class Book {
-    private static String name;
-    private static String author;
-    private static String publishingHouse;
-    private static int published;
-    private static int pages;
+   // private static int count = 0;
+    private  String name;
+    private  String author;
+    private  String publishingHouse;
+    private  int published;
+    private  int pages;
+    public static int count = 0;
 
 
-    public Book(int numberBook, String name, String author, String publishingHouse, int published, int pages){
-        Catalog.numberBook = numberBook;
+    public Book(int count, String name, String author, String publishingHouse, int published, int pages){
+        this.count = count++;
         this.name = name;
         this.author = author;
         this.publishingHouse = publishingHouse;
@@ -33,11 +35,17 @@ public class Book {
     public int getPages(){
         return pages;
     }
+//    public int getCount(){
+//        return count;
+//    }
+//    public void setCount(int count){
+//        this.count = count;
+//    }
 
     public String toString() {
 
         return
-                "Номер книги: " +Catalog.numberBook+"\n"+
+                "Номер книги: " +count+"\n"+
                 "Название: " + name + "\n" +
                 "Автор: " + author + "\n" +
                 "Дом издания: " + publishingHouse + "\n" +
